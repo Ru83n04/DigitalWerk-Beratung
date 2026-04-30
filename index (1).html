@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigitalWerk Beratung – Marketing & IT für kleine Unternehmen</title>
+  <meta name="description" content="DigitalWerk Beratung GbR – Professionelle Marketing- und IT-Beratung. Google, Social Media, Websites und mehr. Praxisnah, verständlich, wirksam." />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 30%, rgba(92,186,116,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(217,243,224,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(92,186,116,0.12);
+      border: 1px solid rgba(92,186,116,0.3);
+      color: var(--green-mid);
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green-mid);
+    }
+
+    .hero p.lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .hero-card-stack {
+      position: relative;
+      width: 360px;
+      height: 380px;
+    }
+
+    .hero-card {
+      position: absolute;
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .hero-card-main {
+      width: 280px;
+      top: 40px; left: 40px;
+      z-index: 3;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-card-back1 {
+      width: 260px;
+      top: 20px; left: 60px;
+      z-index: 2;
+      border-color: rgba(92,186,116,0.15);
+      animation: float 6s ease-in-out infinite 0.5s;
+    }
+
+    .hero-card-back2 {
+      width: 240px;
+      top: 0; left: 80px;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .card-icon {
+      width: 40px; height: 40px;
+      background: rgba(92,186,116,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    .card-bar {
+      margin-top: 1rem;
+      height: 4px;
+      background: var(--gray-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .card-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green-mid), var(--green));
+      border-radius: 4px;
+      animation: bar-grow 2s ease forwards 1.5s;
+      width: 0;
+    }
+
+    @keyframes bar-grow { to { width: 78%; } }
+
+    /* ── STATS ── */
+    .stats {
+      padding: 4rem 0;
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--green-mid);
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── SERVICES OVERVIEW ── */
+    .services-overview {
+      padding: 6rem 0;
+    }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .services-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .service-card:hover {
+      border-color: rgba(92,186,116,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-card-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+    }
+
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ── WHY US ── */
+    .why-us {
+      padding: 6rem 0;
+      background: var(--black-soft);
+    }
+
+    .why-us-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .why-us-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .why-us-text p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--black-card);
+      border-radius: 10px;
+      border-left: 3px solid var(--green-mid);
+    }
+
+    .why-item-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .why-item-text h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .why-item-text p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    .why-us-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .platform-pill {
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .platform-pill:hover {
+      border-color: rgba(92,186,116,0.3);
+      transform: translateX(6px);
+    }
+
+    .platform-pill span:first-child {
+      font-size: 1.5rem;
+    }
+
+    .platform-pill-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .platform-pill-tag {
+      font-size: 0.72rem;
+      background: rgba(92,186,116,0.12);
+      color: var(--green-mid);
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(92,186,116,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-inner p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-visual { display: none; }
+      .hero-content { max-width: 100%; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-header { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-us-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo.png" alt="DigitalWerk Beratung Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Start</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
+    <button class="nav-hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile">
+  <a href="index.html">Start</a>
+  <a href="leistungen.html">Leistungen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Marketing &amp; IT-Beratung</div>
+      <h1>
+        Digitalisierung,<br />
+        die <em>wirklich</em><br />
+        ankommt.
+      </h1>
+      <p class="lead">
+        Wir helfen kleinen Unternehmen, online sichtbar zu werden –
+        mit klarer Strategie, modernen Tools und echter Expertise in
+        Marketing und IT.
+      </p>
+      <div class="hero-actions">
+        <a href="kontakt.html" class="btn btn-primary">
+          Kostenlos anfragen
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="leistungen.html" class="btn btn-outline">Unsere Leistungen</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card hero-card-back2"></div>
+      <div class="hero-card hero-card-back1"></div>
+      <div class="hero-card hero-card-main">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Online-Sichtbarkeit</div>
+        <div class="card-desc">Google, Social Media & mehr</div>
+        <div class="card-bar"><div class="card-bar-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <h3><span data-target="50" data-suffix="+">0+</span></h3>
+        <p>Betreute Kunden</p>
+      </div>
+      <div class="stat-item fade-up">
+        <h3><span data-target="8" data-suffix="+">0+</span></h3>
+        <p>Plattformen & Kanäle</p>
+      </div>
+      <div class="stat-item fade-up">
+        <h3><span data-target="100" data-suffix="%">0%</span></h3>
+        <p>Maßgeschneiderte Lösungen</p>
+      </div>
+      <div class="stat-item fade-up">
+        <h3><span data-target="24" data-suffix="/7">0/7</span></h3>
+        <p>Erreichbar für Sie</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="services-overview">
+  <div class="container">
+    <div class="services-header">
+      <div class="fade-up">
+        <div class="section-label">Was wir tun</div>
+        <h2>Marketing &amp; IT aus einer Hand</h2>
+      </div>
+      <p class="fade-up">
+        Von der Google-Präsenz bis zum Website-Aufbau – wir decken alle
+        digitalen Baustellen ab, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-card-icon">🔍</div>
+        <h3>Google Präsenz</h3>
+        <p>Google Unternehmensprofil, lokale SEO und Maps-Optimierung – damit Kunden Sie finden, wenn sie suchen.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon">📱</div>
+        <h3>Social Media</h3>
+        <p>Professionelle Betreuung auf LinkedIn, Instagram, TikTok, YouTube & Co. – strategisch, konsistent und wirksam.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon">🌐</div>
+        <h3>Website-Entwicklung</h3>
+        <p>Moderne, schnelle Websites, die gut aussehen und Besucher in Kunden verwandeln.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon">📅</div>
+        <h3>Digitale Buchungsplattformen</h3>
+        <p>Online-Terminbuchung und digitale Reservierungssysteme, die Ihren Alltag erleichtern.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon">⚙️</div>
+        <h3>IT-Beratung</h3>
+        <p>Softwarelösungen, digitale Prozesse und technische Beratung – verständlich und praxisnah erklärt.</p>
+      </div>
+      <div class="service-card fade-up" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:rgba(92,186,116,0.06);border-color:rgba(92,186,116,0.25);">
+        <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1.25rem;">Ihr Thema ist nicht dabei?</p>
+        <a href="kontakt.html" class="btn btn-primary" style="font-size:0.85rem;">Einfach fragen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="container">
+    <div class="why-us-inner">
+      <div class="why-us-text fade-up">
+        <div class="section-label">Warum DigitalWerk</div>
+        <h2>Beratung auf Augenhöhe – ohne Fachchinesisch</h2>
+        <p>
+          Wir kennen die Herausforderungen kleiner Betriebe. Deshalb beraten
+          wir praxisnah, lösungsorientiert und ohne unnötige Komplexität.
+        </p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-item-icon">🎯</div>
+            <div class="why-item-text">
+              <h4>Klare Strategie statt Buzzwords</h4>
+              <p>Konkrete Maßnahmen, die messbar wirken.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🤝</div>
+            <div class="why-item-text">
+              <h4>Persönlicher Ansprechpartner</h4>
+              <p>Kein Call-Center – direkte Kommunikation mit Ihrem Berater.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🚀</div>
+            <div class="why-item-text">
+              <h4>Schnelle Umsetzung</h4>
+              <p>Von der Idee zur Lösung – effizient und unkompliziert.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-us-visual fade-up">
+        <div class="section-label" style="margin-bottom:1.5rem;">Unsere Plattformen</div>
+        <div class="platform-pill"><span>🔍</span><span class="platform-pill-name">Google Business</span><span class="platform-pill-tag">Marketing</span></div>
+        <div class="platform-pill"><span>💼</span><span class="platform-pill-name">LinkedIn</span><span class="platform-pill-tag">Social</span></div>
+        <div class="platform-pill"><span>📸</span><span class="platform-pill-name">Instagram</span><span class="platform-pill-tag">Social</span></div>
+        <div class="platform-pill"><span>🎵</span><span class="platform-pill-name">TikTok</span><span class="platform-pill-tag">Social</span></div>
+        <div class="platform-pill"><span>▶️</span><span class="platform-pill-name">YouTube</span><span class="platform-pill-tag">Social</span></div>
+        <div class="platform-pill"><span>🌐</span><span class="platform-pill-name">Website & IT</span><span class="platform-pill-tag">Tech</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label" style="justify-content:center;">Jetzt starten</div>
+      <h2 class="fade-up">Bereit, digital durchzustarten?</h2>
+      <p class="fade-up">Erstes Gespräch kostenlos und unverbindlich. Wir schauen gemeinsam, was für Sie sinnvoll ist.</p>
+      <div class="cta-actions fade-up">
+        <a href="kontakt.html" class="btn btn-primary">
+          Jetzt kostenlos anfragen
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="leistungen.html" class="btn btn-outline">Alle Leistungen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="DigitalWerk Beratung" />
+        <p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen. Praxisnah, verständlich, wirksam.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
