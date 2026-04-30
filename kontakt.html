@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – DigitalWerk Beratung</title>
+  <meta name="description" content="Nehmen Sie Kontakt mit DigitalWerk Beratung auf. Erstes Gespräch kostenlos und unverbindlich." />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .contact-section {
+      padding: 3rem 0 6rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* LEFT: Info */
+    .contact-info {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .contact-info > p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      transition: border-color var(--transition);
+    }
+
+    .contact-detail-item:hover {
+      border-color: rgba(92,186,116,0.3);
+    }
+
+    .contact-detail-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-content {
+      flex: 1;
+    }
+
+    .contact-detail-label {
+      font-size: 0.72rem;
+      color: var(--green-mid);
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-detail-value {
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+
+    .contact-detail-value a {
+      color: var(--white);
+      transition: color var(--transition);
+    }
+
+    .contact-detail-value a:hover {
+      color: var(--green-mid);
+    }
+
+    .contact-promise {
+      background: rgba(92,186,116,0.07);
+      border: 1px solid rgba(92,186,116,0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .contact-promise p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .contact-promise p strong {
+      color: var(--green-mid);
+    }
+
+    /* RIGHT: Form */
+    .contact-form-wrapper {
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 2.5rem;
+    }
+
+    .contact-form-wrapper h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form-wrapper > p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-mid);
+      box-shadow: 0 0 0 3px rgba(92,186,116,0.12);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    .form-group select option {
+      background: var(--black-card);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 1rem;
+      justify-content: center;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-info { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrapper { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
+    <button class="nav-hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-mobile">
+  <a href="index.html">Start</a>
+  <a href="leistungen.html">Leistungen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;">Sprechen wir</div>
+    <h1>Kontakt aufnehmen</h1>
+    <p>Erstes Gespräch kostenlos und unverbindlich. Wir antworten innerhalb von 24 Stunden.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div class="contact-info fade-up">
+        <div class="section-label">Direkter Kontakt</div>
+        <h2>Wir sind für Sie da</h2>
+        <p>Schreiben Sie uns, rufen Sie an oder nutzen Sie das Formular. Wir freuen uns auf Ihre Nachricht.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">✉️</div>
+            <div class="contact-detail-content">
+              <div class="contact-detail-label">E-Mail</div>
+              <div class="contact-detail-value">
+                <!-- TODO: Ihre E-Mail-Adresse hier eintragen -->
+                <a href="mailto:info@digitalwerkberatung.de">info@digitalwerkberatung.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">🌐</div>
+            <div class="contact-detail-content">
+              <div class="contact-detail-label">Website</div>
+              <div class="contact-detail-value">
+                <a href="https://www.digitalwerkberatung.de" target="_blank" rel="noopener">www.digitalwerkberatung.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">💼</div>
+            <div class="contact-detail-content">
+              <div class="contact-detail-label">LinkedIn</div>
+              <div class="contact-detail-value">
+                <!-- TODO: LinkedIn-Link eintragen -->
+                <a href="#" target="_blank" rel="noopener">DigitalWerk Beratung</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">📸</div>
+            <div class="contact-detail-content">
+              <div class="contact-detail-label">Instagram</div>
+              <div class="contact-detail-value">
+                <!-- TODO: Instagram-Link eintragen -->
+                <a href="#" target="_blank" rel="noopener">@digitalwerkberatung</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-promise">
+          <p>
+            <strong>Unser Versprechen:</strong> Kein Spam, keine ungebetenen Anrufe.
+            Wir melden uns nur dann, wenn Sie es möchten – und immer persönlich.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="contact-form-wrapper fade-up">
+        <h3>Anfrage senden</h3>
+        <p>Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vorname">Vorname *</label>
+              <input type="text" id="vorname" name="vorname" placeholder="Max" required />
+            </div>
+            <div class="form-group">
+              <label for="nachname">Nachname *</label>
+              <input type="text" id="nachname" name="nachname" placeholder="Mustermann" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" placeholder="max@beispiel.de" required />
+          </div>
+
+          <div class="form-group">
+            <label for="unternehmen">Unternehmen / Betrieb</label>
+            <input type="text" id="unternehmen" name="unternehmen" placeholder="Muster GmbH (optional)" />
+          </div>
+
+          <div class="form-group">
+            <label for="leistung">Worum geht es? *</label>
+            <select id="leistung" name="leistung" required>
+              <option value="" disabled selected>Bitte wählen...</option>
+              <option value="google">Google Präsenz & lokale Sichtbarkeit</option>
+              <option value="social">Social Media Beratung</option>
+              <option value="website">Website-Entwicklung</option>
+              <option value="buchung">Digitale Buchungsplattform</option>
+              <option value="it">IT-Beratung & Digitalisierung</option>
+              <option value="sonstiges">Sonstiges / Erstgespräch</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="nachricht">Ihre Nachricht *</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz, wobei wir Ihnen helfen können..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit-btn">
+            Anfrage absenden
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="form-note">* Pflichtfelder. Ihre Daten werden nicht an Dritte weitergegeben.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="DigitalWerk Beratung" />
+        <p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen. Praxisnah, verständlich, wirksam.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:1.5rem;"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

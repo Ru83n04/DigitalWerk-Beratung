@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leistungen – DigitalWerk Beratung</title>
+  <meta name="description" content="Unsere Leistungen: Google-Präsenz, Social Media, Website-Entwicklung, IT-Beratung und digitale Buchungsplattformen für kleine Unternehmen." />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── LEISTUNGEN PAGE ── */
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .leistung-card {
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .leistung-card:hover {
+      border-color: rgba(92,186,116,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: translateY(-4px);
+    }
+
+    .leistung-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--black-card) 60%, rgba(92,186,116,0.06) 100%);
+      border-color: rgba(92,186,116,0.2);
+    }
+
+    .leistung-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .leistung-number {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--green-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .leistung-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .leistung-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .leistung-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .leistung-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .leistung-list li::before {
+      content: '✓';
+      color: var(--green-mid);
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .leistung-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .mini-stat {
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mini-stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .mini-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--green-mid);
+    }
+
+    .process-section {
+      padding: 5rem 0;
+      background: var(--black-soft);
+    }
+
+    .process-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .process-title h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .process-title p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-mid), transparent);
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .step-number {
+      width: 56px; height: 56px;
+      background: var(--black-card);
+      border: 2px solid rgba(92,186,116,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--green-mid);
+      margin: 0 auto 1.25rem;
+    }
+
+    .process-step h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .leistungen-grid { grid-template-columns: 1fr; }
+      .leistung-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="leistungen.html" class="active">Leistungen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
+    <button class="nav-hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-mobile">
+  <a href="index.html">Start</a>
+  <a href="leistungen.html">Leistungen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;">Was wir anbieten</div>
+    <h1>Unsere Leistungen</h1>
+    <p>Alles, was Sie brauchen, um online sichtbar zu werden und zu wachsen – aus einer Hand.</p>
+  </div>
+</section>
+
+<section style="padding-top: 3rem;">
+  <div class="container">
+    <div class="leistungen-grid">
+
+      <!-- FEATURED: Google -->
+      <div class="leistung-card featured fade-up">
+        <div>
+          <div class="leistung-number">01 / Kernleistung</div>
+          <div class="leistung-icon">🔍</div>
+          <h2>Google Präsenz & lokale Sichtbarkeit</h2>
+          <p>
+            Ihr Google Unternehmensprofil ist oft der erste Eindruck, den potenzielle Kunden von Ihnen bekommen.
+            Wir optimieren Ihren Auftritt vollständig – von der Einrichtung bis zur laufenden Pflege.
+          </p>
+          <ul class="leistung-list">
+            <li>Google Unternehmensprofil einrichten & optimieren</li>
+            <li>Lokale SEO & Maps-Positionierung</li>
+            <li>Bewertungsmanagement & Antwortstrategien</li>
+            <li>Google Ads für lokale Reichweite</li>
+          </ul>
+        </div>
+        <div class="leistung-visual">
+          <div class="mini-stat"><span class="mini-stat-label">Lokale Suchanfragen täglich</span><span class="mini-stat-value">+43%</span></div>
+          <div class="mini-stat"><span class="mini-stat-label">Kunden finden per Google</span><span class="mini-stat-value">78%</span></div>
+          <div class="mini-stat"><span class="mini-stat-label">Sichtbarkeit nach Optimierung</span><span class="mini-stat-value">↑↑↑</span></div>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="leistung-card fade-up">
+        <div class="leistung-number">02</div>
+        <div class="leistung-icon">📱</div>
+        <h2>Social Media Beratung & Betreuung</h2>
+        <p>Von der Strategie bis zum Post – wir helfen Ihnen, auf den richtigen Kanälen präsent zu sein und echte Verbindungen zu Ihrer Zielgruppe aufzubauen.</p>
+        <ul class="leistung-list">
+          <li>LinkedIn für B2B & Employer Branding</li>
+          <li>Instagram & TikTok für Reichweite</li>
+          <li>YouTube für Vertrauen & Expertise</li>
+          <li>Content-Strategie & Redaktionsplanung</li>
+        </ul>
+      </div>
+
+      <!-- Website -->
+      <div class="leistung-card fade-up">
+        <div class="leistung-number">03</div>
+        <div class="leistung-icon">🌐</div>
+        <h2>Website-Entwicklung & -Beratung</h2>
+        <p>Moderne, schnelle und mobiloptimierte Websites, die Ihr Unternehmen professionell präsentieren und Besucher zu Kunden machen.</p>
+        <ul class="leistung-list">
+          <li>Design & Entwicklung neuer Websites</li>
+          <li>Überarbeitung & Modernisierung bestehender Sites</li>
+          <li>SEO-Grundoptimierung & Performance</li>
+          <li>Content-Management-Systeme (CMS)</li>
+        </ul>
+      </div>
+
+      <!-- Buchungsplattform -->
+      <div class="leistung-card fade-up">
+        <div class="leistung-number">04</div>
+        <div class="leistung-icon">📅</div>
+        <h2>Digitale Buchungsplattformen</h2>
+        <p>Automatisieren Sie Terminvereinbarungen und Reservierungen mit smarten Online-Lösungen, die rund um die Uhr für Sie arbeiten.</p>
+        <ul class="leistung-list">
+          <li>Online-Terminbuchungssysteme</li>
+          <li>Digitale Reservierungsplattformen</li>
+          <li>Integration in bestehende Websites</li>
+          <li>Automatische Erinnerungen & Benachrichtigungen</li>
+        </ul>
+      </div>
+
+      <!-- IT Beratung -->
+      <div class="leistung-card fade-up" style="grid-column: span 2;">
+        <div class="leistung-number">05</div>
+        <div class="leistung-icon">⚙️</div>
+        <h2>IT-Beratung & Digitalisierung</h2>
+        <p>Sie möchten Prozesse digitalisieren, Software einführen oder einfach verstehen, welche Tools wirklich helfen? Wir begleiten Sie – verständlich, ehrlich und ohne unnötigen Schnickschnack.</p>
+        <ul class="leistung-list" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem;">
+          <li>Digitale Prozessberatung</li>
+          <li>Software-Auswahl & Einführung</li>
+          <li>Cloud-Lösungen für kleine Betriebe</li>
+          <li>Datensicherheit & Datenschutz-Basics</li>
+          <li>E-Mail-Marketing & Newsletter-Tools</li>
+          <li>Individuelle IT-Projekte</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div class="process-title fade-up">
+      <div class="section-label" style="justify-content:center;">Wie wir arbeiten</div>
+      <h2>In 4 Schritten zu Ihrer digitalen Lösung</h2>
+      <p>Klar strukturiert, transparent und effizient.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="step-number">1</div>
+        <h3>Erstgespräch</h3>
+        <p>Wir lernen uns kennen, verstehen Ihre Ziele und analysieren Ihre aktuelle Situation.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-number">2</div>
+        <h3>Strategie</h3>
+        <p>Wir entwickeln einen klaren Aktionsplan – praxisnah und auf Ihr Budget zugeschnitten.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-number">3</div>
+        <h3>Umsetzung</h3>
+        <p>Wir setzen gemeinsam um – schnell, sauber und mit regelmäßigem Update für Sie.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-number">4</div>
+        <h3>Wachstum</h3>
+        <p>Wir messen Ergebnisse, optimieren kontinuierlich und wachsen mit Ihnen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(92,186,116,0.08) 0%, transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;">
+    <div class="section-label" style="justify-content:center;">Los geht's</div>
+    <h2 class="fade-up" style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;margin-bottom:1rem;">Welche Leistung passt zu Ihnen?</h2>
+    <p class="fade-up" style="color:var(--gray);font-size:0.95rem;max-width:520px;margin:0 auto 2.5rem;">Erzählen Sie uns von Ihrem Unternehmen – wir empfehlen, was wirklich Sinn macht.</p>
+    <a href="kontakt.html" class="btn btn-primary fade-up">
+      Jetzt kostenlos anfragen
+      <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="DigitalWerk Beratung" />
+        <p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen. Praxisnah, verständlich, wirksam.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:1.5rem;"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
