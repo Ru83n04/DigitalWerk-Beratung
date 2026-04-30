@@ -1,268 +1,191 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Über uns – DigitalWerk Beratung</title>
-  <meta name="description" content="Wer steckt hinter DigitalWerk Beratung? Lernen Sie das Team kennen und erfahren Sie, was uns antreibt." />
-  <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="description" content="Wer steckt hinter DigitalWerk Beratung? Lernen Sie unser Team kennen."/>
+  <link rel="icon" type="image/png" href="assets/img/logo.png"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    .about-intro {
-      padding: 3rem 0 5rem;
-    }
+  .about-intro { padding: 4rem 0 6rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .intro-quote {
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin-bottom: 4rem;
+  }
+  .intro-quote em { color: var(--green-mid); font-style: italic; }
 
-    .about-intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .intro-text p { font-size: 0.95rem; color: var(--gray-1); line-height: 1.9; margin-bottom: 1rem; }
+  .intro-text p strong { color: var(--white); font-weight: 500; }
 
-    .about-intro-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
+  .intro-card {
+    background: var(--black-3);
+    border: 1px solid rgba(75,173,101,0.15);
+    border-radius: var(--r-lg);
+    padding: 2.25rem;
+    position: relative;
+  }
+  .intro-card__quote-mark {
+    font-family: var(--display);
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--green-mid);
+    opacity: 0.25;
+    position: absolute;
+    top: -1rem; left: 1.5rem;
+  }
+  .intro-card blockquote {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .intro-card cite {
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--green-mid);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
 
-    .about-intro-text p {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.95rem;
-      line-height: 1.9;
-      margin-bottom: 1rem;
-    }
+  /* VALUES */
+  .values { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .values__header { margin-bottom: 4rem; }
+  .values__header h2 { margin-bottom: 0; }
+  .values__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .value-card {
+    background: var(--black-3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--r-lg);
+    padding: 2rem;
+    transition: border-color var(--t), transform var(--t);
+  }
+  .value-card:hover { border-color: rgba(75,173,101,0.3); transform: translateY(-4px); }
+  .value-card__icon { font-size: 1.75rem; margin-bottom: 1rem; }
+  .value-card h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .value-card p { font-size: 0.85rem; color: var(--gray-1); line-height: 1.75; }
 
-    .about-intro-visual {
-      position: relative;
-    }
+  /* MISSION */
+  .mission { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .mission__inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+  .mission__label { position: sticky; top: 8rem; }
+  .mission__label h2 { margin-bottom: 1rem; }
+  .mission__label p { font-size: 0.9rem; color: var(--gray-1); line-height: 1.8; }
+  .mission__items { display: flex; flex-direction: column; gap: 0; }
+  .mission-item {
+    padding: 2rem 0 2rem 2rem;
+    border-left: 1px solid rgba(75,173,101,0.2);
+    position: relative;
+    transition: border-color var(--t);
+  }
+  .mission-item:hover { border-color: var(--green-mid); }
+  .mission-item::before {
+    content: '';
+    position: absolute;
+    left: -4px; top: 2rem;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--black-3);
+    border: 1px solid rgba(75,173,101,0.4);
+    transition: background var(--t);
+  }
+  .mission-item:hover::before { background: var(--green-mid); }
+  .mission-item h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .mission-item p { font-size: 0.875rem; color: var(--gray-1); line-height: 1.8; }
 
-    .big-quote {
-      background: var(--black-card);
-      border: 1px solid rgba(92,186,116,0.25);
-      border-radius: 16px;
-      padding: 2.5rem;
-      position: relative;
-    }
-
-    .big-quote::before {
-      content: '"';
-      position: absolute;
-      top: -1.5rem;
-      left: 2rem;
-      font-family: var(--font-display);
-      font-size: 8rem;
-      color: var(--green-mid);
-      line-height: 1;
-      opacity: 0.4;
-    }
-
-    .big-quote p {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.6;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
-
-    .big-quote cite {
-      font-style: normal;
-      font-size: 0.85rem;
-      color: var(--green-mid);
-      font-family: var(--font-display);
-      font-weight: 700;
-    }
-
-    /* VALUES */
-    .values-section {
-      padding: 5rem 0;
-      background: var(--black-soft);
-    }
-
-    .values-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .values-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    .values-header p {
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .value-card {
-      background: var(--black-card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 2rem;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-
-    .value-card:hover {
-      border-color: rgba(92,186,116,0.35);
-      transform: translateY(-3px);
-    }
-
-    .value-card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .value-card h3 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-
-    .value-card p {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.75;
-    }
-
-    /* MISSION */
-    .mission-section {
-      padding: 5rem 0;
-    }
-
-    .mission-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .mission-label-block {
-      position: sticky;
-      top: 8rem;
-    }
-
-    .mission-label-block h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    .mission-label-block p {
-      color: var(--gray);
-      font-size: 0.9rem;
-      line-height: 1.8;
-    }
-
-    .mission-items {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .mission-item {
-      border-left: 2px solid rgba(92,186,116,0.3);
-      padding-left: 1.5rem;
-    }
-
-    .mission-item h3 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--white);
-    }
-
-    .mission-item p {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.8;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .about-intro-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
-      .mission-inner { grid-template-columns: 1fr; }
-      .mission-label-block { position: static; }
-    }
-
-    @media (max-width: 600px) {
-      .values-grid { grid-template-columns: 1fr; }
-    }
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .values__grid { grid-template-columns: 1fr 1fr; }
+    .mission__inner { grid-template-columns: 1fr; gap: 3rem; }
+    .mission__label { position: static; }
+  }
+  @media (max-width: 600px) {
+    .values__grid { grid-template-columns: 1fr; }
+  }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung" /></a>
-    <ul class="nav-links">
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung"/></a>
+    <ul class="nav__links">
       <li><a href="index.html">Start</a></li>
       <li><a href="leistungen.html">Leistungen</a></li>
       <li><a href="ueber-uns.html" class="active">Über uns</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
-    <button class="nav-hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    <a href="kontakt.html" class="btn btn-primary nav__cta">Anfragen</a>
+    <button class="nav__hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<div class="nav-mobile">
-  <a href="index.html">Start</a>
-  <a href="leistungen.html">Leistungen</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="kontakt.html">Kontakt</a>
+<div class="nav__mobile">
+  <a href="index.html">Start</a><a href="leistungen.html">Leistungen</a>
+  <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a>
 </div>
 
 <section class="page-hero">
+  <div class="page-hero__glow"></div>
   <div class="container">
-    <div class="section-label" style="justify-content:center;">Wer wir sind</div>
-    <h1>Über DigitalWerk Beratung</h1>
-    <p>Wir machen Digitalisierung für kleine Betriebe einfach, verständlich und effektiv – ohne leere Versprechen.</p>
+    <div class="eyebrow reveal">Wer wir sind</div>
+    <h1 class="display-xl reveal" data-delay="80" style="margin-bottom:1.5rem;">
+      Über uns
+    </h1>
+    <p class="body-lg reveal" data-delay="160">
+      Wir machen Digitalisierung für kleine Betriebe einfach, verständlich und wirksam.
+    </p>
   </div>
 </section>
 
 <!-- INTRO -->
 <section class="about-intro">
   <div class="container">
-    <div class="about-intro-grid">
-      <div class="about-intro-text fade-up">
-        <div class="section-label">Unsere Geschichte</div>
-        <h2>Digitalisierung, die bei kleinen Betrieben wirklich ankommt</h2>
-        <p>
-          DigitalWerk Beratung GbR entstand aus einer einfachen Überzeugung: Kleine Unternehmen verdienen
-          genauso gute digitale Beratung wie große Konzerne – nur verständlicher, praxisnäher und
-          ohne unnötigen Overhead.
-        </p>
-        <p>
-          Viele Inhaber wissen, dass sie online sichtbarer werden müssen. Aber zwischen
-          Tagesgeschäft, fehlender Zeit und dem Dschungel aus Tools und Plattformen
-          geht der Überblick schnell verloren. Genau hier kommen wir ins Spiel.
-        </p>
-        <p>
-          Wir sind Ihr digitaler Begleiter – ehrlich, direkt und immer auf Augenhöhe.
-        </p>
-        <a href="kontakt.html" class="btn btn-primary" style="margin-top:1rem;">
-          Jetzt kennenlernen
-          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+    <p class="intro-quote reveal">
+      Kleine Unternehmen verdienen genauso gute digitale Beratung wie große Konzerne –
+      nur <em>verständlicher, praxisnäher</em> und ohne leere Versprechen.
+    </p>
+    <div class="intro-grid">
+      <div class="intro-text reveal">
+        <div class="eyebrow">Unsere Geschichte</div>
+        <p>DigitalWerk Beratung GbR entstand aus einer einfachen Überzeugung: Viele Inhaber kleiner Betriebe wissen, dass sie <strong>online sichtbarer werden müssen</strong> – aber zwischen Tagesgeschäft, fehlender Zeit und dem Dschungel aus Tools und Plattformen geht der Überblick schnell verloren.</p>
+        <p>Genau hier kommen wir ins Spiel. Wir sind Ihr digitaler Begleiter – ehrlich, direkt und immer auf Augenhöhe. Kein Fachjargon, keine überteuerten Paketlösungen, keine Standardfloskeln.</p>
+        <p>Nur das, was <strong>wirklich zu Ihrem Unternehmen passt</strong> – und zu Ihrem Budget.</p>
+        <div style="margin-top:2rem;">
+          <a href="kontakt.html" class="btn btn-primary">
+            Jetzt kennenlernen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="about-intro-visual fade-up">
-        <div class="big-quote">
-          <p>Kein Fachchinesisch, keine leeren Versprechen – nur Maßnahmen, die wirklich zu Ihnen passen.</p>
+      <div class="reveal" data-delay="120">
+        <div class="intro-card">
+          <div class="intro-card__quote-mark">"</div>
+          <blockquote>"Kein Fachchinesisch, keine leeren Versprechen. Nur Maßnahmen, die wirklich zu Ihnen passen – und Ergebnisse, die Sie selbst sehen."</blockquote>
           <cite>— DigitalWerk Beratung GbR</cite>
         </div>
       </div>
@@ -271,73 +194,51 @@
 </section>
 
 <!-- VALUES -->
-<section class="values-section">
+<section class="values">
   <div class="container">
-    <div class="values-header fade-up">
-      <div class="section-label" style="justify-content:center;">Was uns ausmacht</div>
-      <h2>Unsere Werte</h2>
-      <p>Das sind die Prinzipien, nach denen wir jeden Tag arbeiten.</p>
+    <div class="values__header grid-2" style="align-items:end;">
+      <div class="reveal">
+        <div class="eyebrow">Was uns ausmacht</div>
+        <h2 class="display-md">Unsere Werte</h2>
+      </div>
+      <p class="body-md reveal" data-delay="80">Diese Prinzipien sind die Grundlage für jede Zusammenarbeit – egal ob kleines Erstgespräch oder langfristige Partnerschaft.</p>
     </div>
-    <div class="values-grid">
-      <div class="value-card fade-up">
-        <div class="value-card-icon">🎯</div>
-        <h3>Klarheit</h3>
-        <p>Wir erklären alles verständlich. Kein Jargon, keine Verwirrung – nur klare Aussagen und konkrete nächste Schritte.</p>
-      </div>
-      <div class="value-card fade-up">
-        <div class="value-card-icon">🤝</div>
-        <h3>Partnerschaft</h3>
-        <p>Wir sind kein anonymes Call-Center. Sie bekommen einen persönlichen Ansprechpartner, der Ihr Unternehmen wirklich kennt.</p>
-      </div>
-      <div class="value-card fade-up">
-        <div class="value-card-icon">💡</div>
-        <h3>Ehrlichkeit</h3>
-        <p>Wir empfehlen nur, was wirklich Sinn macht – auch wenn das bedeutet, weniger zu verkaufen.</p>
-      </div>
-      <div class="value-card fade-up">
-        <div class="value-card-icon">⚡</div>
-        <h3>Tempo</h3>
-        <p>Gute Ideen schnell umsetzen. Wir arbeiten effizient, damit Sie schnell Ergebnisse sehen.</p>
-      </div>
-      <div class="value-card fade-up">
-        <div class="value-card-icon">📊</div>
-        <h3>Messbarkeit</h3>
-        <p>Was nicht messbar ist, kann nicht verbessert werden. Wir arbeiten datenbasiert und zeigen Ihnen echte Ergebnisse.</p>
-      </div>
-      <div class="value-card fade-up">
-        <div class="value-card-icon">🌱</div>
-        <h3>Nachhaltigkeit</h3>
-        <p>Keine Quick-Fixes. Wir bauen Strukturen, die langfristig tragen und mit Ihrem Unternehmen wachsen.</p>
-      </div>
+    <div class="values__grid">
+      <div class="value-card reveal"><div class="value-card__icon">🎯</div><h3>Klarheit</h3><p>Wir erklären alles verständlich. Kein Jargon, keine Verwirrung – nur klare Aussagen und konkrete nächste Schritte.</p></div>
+      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">🤝</div><h3>Partnerschaft</h3><p>Sie bekommen einen persönlichen Ansprechpartner, der Ihr Unternehmen wirklich kennt – kein anonymes Call-Center.</p></div>
+      <div class="value-card reveal" data-delay="160"><div class="value-card__icon">💡</div><h3>Ehrlichkeit</h3><p>Wir empfehlen nur, was wirklich Sinn macht – auch wenn das bedeutet, weniger zu verkaufen.</p></div>
+      <div class="value-card reveal"><div class="value-card__icon">⚡</div><h3>Tempo</h3><p>Gute Ideen schnell umsetzen. Wir arbeiten effizient, damit Sie schnell Ergebnisse sehen.</p></div>
+      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">📊</div><h3>Messbarkeit</h3><p>Was nicht messbar ist, kann nicht verbessert werden. Wir arbeiten datenbasiert und transparent.</p></div>
+      <div class="value-card reveal" data-delay="160"><div class="value-card__icon">🌱</div><h3>Nachhaltigkeit</h3><p>Keine Quick-Fixes. Wir bauen Strukturen, die langfristig tragen und mit Ihrem Betrieb wachsen.</p></div>
     </div>
   </div>
 </section>
 
 <!-- MISSION -->
-<section class="mission-section">
+<section class="mission">
   <div class="container">
-    <div class="mission-inner">
-      <div class="mission-label-block fade-up">
-        <div class="section-label">Unsere Mission</div>
-        <h2>Warum wir tun, was wir tun</h2>
+    <div class="mission__inner">
+      <div class="mission__label reveal">
+        <div class="eyebrow">Unsere Mission</div>
+        <h2 class="display-md">Warum wir tun,<br/>was wir tun</h2>
         <p>Kleine Betriebe sind das Rückgrat unserer Wirtschaft. Sie verdienen digitale Kompetenz, die wirklich hilft.</p>
       </div>
-      <div class="mission-items">
-        <div class="mission-item fade-up">
+      <div class="mission__items">
+        <div class="mission-item reveal">
           <h3>Mehr Sichtbarkeit für kleine Betriebe</h3>
           <p>Ob Handwerker, Therapeut oder lokaler Händler – wir helfen Ihnen, von den richtigen Menschen gefunden zu werden, genau dann, wenn sie suchen.</p>
         </div>
-        <div class="mission-item fade-up">
-          <h3>Digitale Kompetenz demokratisieren</h3>
-          <p>Große Unternehmen haben Marketingabteilungen. Kleine Betriebe haben uns. Wir geben Ihnen dieselben Werkzeuge und Strategien – passend zu Ihrer Größe und Ihrem Budget.</p>
+        <div class="mission-item reveal" data-delay="80">
+          <h3>Digitale Kompetenz zugänglich machen</h3>
+          <p>Große Unternehmen haben Marketingabteilungen. Kleine Betriebe haben uns. Wir geben Ihnen dieselben Werkzeuge – passend zu Ihrer Größe und Ihrem Budget.</p>
         </div>
-        <div class="mission-item fade-up">
-          <h3>Vertrauen als Grundlage</h3>
-          <p>Wir verdienen Vertrauen durch Transparenz, messbare Ergebnisse und offene Kommunikation – nicht durch schöne Versprechen.</p>
+        <div class="mission-item reveal" data-delay="160">
+          <h3>Vertrauen durch Transparenz</h3>
+          <p>Wir verdienen Vertrauen durch Offenheit, messbare Ergebnisse und direkte Kommunikation – nicht durch schöne Versprechen.</p>
         </div>
-        <div class="mission-item fade-up">
-          <h3>Langfristige Beziehungen statt Projekte</h3>
-          <p>Wir denken in Partnerschaften, nicht in Einzelaufträgen. Ihr Wachstum ist unser Erfolg – das ist der Maßstab, an dem wir uns messen.</p>
+        <div class="mission-item reveal" data-delay="240">
+          <h3>Langfristige Partnerschaften</h3>
+          <p>Wir denken in Beziehungen, nicht in Einzelaufträgen. Ihr Wachstum ist unser Erfolg – daran messen wir uns.</p>
         </div>
       </div>
     </div>
@@ -345,49 +246,28 @@
 </section>
 
 <!-- CTA -->
-<section style="padding:5rem 0;background:var(--black-soft);text-align:center;">
+<section style="padding:6rem 0;text-align:center;background:var(--black-2);">
   <div class="container">
-    <div class="section-label" style="justify-content:center;">Nächster Schritt</div>
-    <h2 class="fade-up" style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:1rem;">Lassen Sie uns kennenlernen</h2>
-    <p class="fade-up" style="color:var(--gray);font-size:0.95rem;max-width:480px;margin:0 auto 2.5rem;">Erstes Gespräch kostenlos und unverbindlich. Einfach Kontakt aufnehmen – wir melden uns schnell.</p>
-    <a href="kontakt.html" class="btn btn-primary fade-up">
+    <div class="eyebrow reveal" style="justify-content:center;">Nächster Schritt</div>
+    <h2 class="display-md reveal" style="margin-bottom:1rem;">Lassen Sie uns<br/>kennenlernen</h2>
+    <p class="body-md reveal" data-delay="80" style="max-width:440px;margin:0 auto 2.5rem;">Erstes Gespräch kostenlos und unverbindlich. Einfach Kontakt aufnehmen.</p>
+    <a href="kontakt.html" class="btn btn-primary reveal" data-delay="120">
       Jetzt Kontakt aufnehmen
-      <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
 
-<footer>
+<footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/img/logo.png" alt="DigitalWerk Beratung" />
-        <p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen. Praxisnah, verständlich, wirksam.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="leistungen.html">Leistungen</a></li>
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-        </ul>
-      </div>
+    <div class="footer__grid">
+      <div class="footer__brand"><img src="assets/img/logo.png" alt="DigitalWerk Beratung"/><p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen. Praxisnah, verständlich, wirksam.</p></div>
+      <div class="footer__col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div class="footer__col"><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p>
-      <div style="display:flex;gap:1.5rem;"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
-    </div>
+    <div class="footer__bottom"><p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p><div class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
   </div>
 </footer>
-
 <script src="assets/js/main.js"></script>
 </body>
 </html>

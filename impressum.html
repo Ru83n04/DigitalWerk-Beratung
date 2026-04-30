@@ -1,138 +1,77 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Impressum – DigitalWerk Beratung</title>
-  <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    .legal-content {
-      padding: 3rem 0 6rem;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .legal-content h2 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 2rem 0 0.75rem;
-      color: var(--white);
-    }
-    .legal-content p, .legal-content address {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.9rem;
-      line-height: 1.85;
-      font-style: normal;
-    }
-    .legal-content a { color: var(--green-mid); }
-    .legal-content a:hover { text-decoration: underline; }
-    .todo-box {
-      background: rgba(92,186,116,0.08);
-      border: 1px solid rgba(92,186,116,0.25);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      font-size: 0.82rem;
-      color: var(--green-mid);
-      margin: 0.5rem 0 1rem;
-    }
-  </style>
+  <link rel="icon" type="image/png" href="assets/img/logo.png"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-<nav>
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung" /></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul>
-    <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
-    <button class="nav-hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo"><img src="assets/img/logo.png" alt="DigitalWerk Beratung"/></a>
+    <ul class="nav__links"><li><a href="index.html">Start</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+    <a href="kontakt.html" class="btn btn-primary nav__cta">Anfragen</a>
+    <button class="nav__hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="nav-mobile">
-  <a href="index.html">Start</a><a href="leistungen.html">Leistungen</a>
-  <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a>
-</div>
+<div class="nav__mobile"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
 
-<section class="page-hero">
+<section class="page-hero" style="padding-bottom:2rem;">
+  <div class="page-hero__glow"></div>
   <div class="container">
-    <h1>Impressum</h1>
+    <h1 class="display-lg">Impressum</h1>
   </div>
 </section>
 
 <div class="container">
-  <div class="legal-content">
-
-    <div class="todo-box">⚠️ Bitte ersetzen Sie alle [PLATZHALTER] mit Ihren echten Angaben vor der Veröffentlichung.</div>
+  <div class="legal-wrap">
+    <div class="notice-box">⚠️ Bitte ersetzen Sie alle [PLATZHALTER] mit Ihren echten Angaben vor der Veröffentlichung.</div>
 
     <h2>Angaben gemäß § 5 TMG</h2>
     <address>
-      DigitalWerk Beratung GbR<br />
-      [Straße und Hausnummer]<br />
-      [PLZ] [Stadt]<br />
+      DigitalWerk Beratung GbR<br/>
+      [Straße und Hausnummer]<br/>
+      [PLZ] [Stadt]<br/>
       Deutschland
     </address>
 
     <h2>Vertreten durch</h2>
-    <p>[Name der Gesellschafter]</p>
+    <p>[Vor- und Nachname der Gesellschafter]</p>
 
     <h2>Kontakt</h2>
-    <p>
-      Telefon: [Ihre Telefonnummer]<br />
-      E-Mail: <a href="mailto:info@digitalwerkberatung.de">info@digitalwerkberatung.de</a>
-    </p>
+    <p>Telefon: [Ihre Telefonnummer]<br/>
+    E-Mail: <a href="mailto:info@digitalwerkberatung.de">info@digitalwerkberatung.de</a></p>
 
     <h2>Umsatzsteuer-ID</h2>
-    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [Ihre USt-ID, falls vorhanden]</p>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br/>[Ihre USt-ID, falls vorhanden]</p>
 
     <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-    <p>[Name und Adresse des Verantwortlichen]</p>
+    <p>[Name und vollständige Adresse]</p>
 
     <h2>Streitschlichtung</h2>
-    <p>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br />
-      Unsere E-Mail-Adresse finden Sie oben im Impressum.<br />
-      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-    </p>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
     <h2>Haftung für Inhalte</h2>
-    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
 
+    <h2>Haftung für Links</h2>
+    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+
+    <h2>Urheberrecht</h2>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
   </div>
 </div>
 
-<footer>
+<footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/img/logo.png" alt="DigitalWerk Beratung" />
-        <p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="leistungen.html">Leistungen</a></li>
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-        </ul>
-      </div>
+    <div class="footer__grid">
+      <div class="footer__brand"><img src="assets/img/logo.png" alt="DigitalWerk Beratung"/><p>Professionelle Marketing- und IT-Beratung für kleine Unternehmen.</p></div>
+      <div class="footer__col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div class="footer__col"><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p>
-      <div style="display:flex;gap:1.5rem;"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
-    </div>
+    <div class="footer__bottom"><p>© 2025 DigitalWerk Beratung GbR.</p><div class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
