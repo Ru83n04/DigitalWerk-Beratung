@@ -220,7 +220,19 @@
         <h3>Anfrage senden</h3>
         <p>Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden.</p>
 
-        <form action="https://form.taxi/s/jarqb7ee" method="POST" accept-charset="utf-8">
+        <!-- ERFOLGSMELDUNG (versteckt) -->
+        <div id="form-success" style="display:none;text-align:center;padding:2.5rem 1.5rem;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">✅</div>
+          <h4 style="font-family:var(--display);font-size:1.3rem;font-weight:300;margin-bottom:0.75rem;">Vielen Dank!</h4>
+          <p style="color:var(--gray-1);font-size:0.9rem;line-height:1.8;">Ihre Anfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+        </div>
+
+        <!-- FEHLERMELDUNG (versteckt) -->
+        <div id="form-error" style="display:none;background:rgba(220,50,50,0.08);border:1px solid rgba(220,50,50,0.25);border-radius:var(--r-md);padding:1rem 1.25rem;margin-bottom:1rem;">
+          <p style="color:#f87171;font-size:0.85rem;margin:0;">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.</p>
+        </div>
+
+        <form id="contact-form" action="https://form.taxi/s/jarqb7ee" method="POST" accept-charset="utf-8">
 
           <div class="field">
             <label for="name">Name *</label>
@@ -267,7 +279,7 @@
           <!-- Honeypot gegen Spam -->
           <input type="text" name="_gotcha" value="" style="display:none"/>
 
-          <button type="submit" class="submit-btn">
+          <button type="submit" class="submit-btn" id="submit-btn">
             Anfrage absenden
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -289,6 +301,42 @@
     <div class="footer__bottom"><p>© 2025 DigitalWerk Beratung GbR. Alle Rechte vorbehalten.</p><div class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
   </div>
 </footer>
+
 <script src="assets/js/main.js"></script>
-</body>
-</html>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const btn = document.getElementById('submit-btn');
+    const successBox = document.getElementById('form-success');
+    const errorBox = document.getElementById('form-error');
+
+    // Button: Ladezustand
+    btn.disabled = true;
+    btn.innerHTML = '<span style="opacity:0.7">Wird gesendet...</span>';
+    errorBox.style.display = 'none';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Erfolg: Formular ausblenden, Erfolgsmeldung einblenden
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      // Fehler anzeigen, Button zurücksetzen
+      errorBox.style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = 'Anfrage absenden <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    }
+  });
+</script>
