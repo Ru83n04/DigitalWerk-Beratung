@@ -219,31 +219,59 @@
       <div class="contact__form-wrap reveal" data-delay="120">
         <h3>Anfrage senden</h3>
         <p>Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden.</p>
-        <form class="js-form" action="https://form.taxi/s/jarqb7ee" method="POST">
-          <div class="form-row">
-            <div class="field"><label>Vorname *</label><input type="text" name="vorname" placeholder="Max" required/></div>
-            <div class="field"><label>Nachname *</label><input type="text" name="nachname" placeholder="Mustermann" required/></div>
-          </div>
-          <div class="field"><label>E-Mail *</label><input type="email" name="email" placeholder="max@beispiel.de" required/></div>
-          <div class="field"><label>Unternehmen</label><input type="text" name="unternehmen" placeholder="Muster GmbH (optional)"/></div>
+
+        <form action="https://form.taxi/s/jarqb7ee" method="POST" accept-charset="utf-8">
+
           <div class="field">
-            <label>Ich interessiere mich für *</label>
-            <select name="leistung" required>
+            <label for="name">Name *</label>
+            <input type="text" name="Name" id="name" placeholder="Max Mustermann" required/>
+          </div>
+
+          <div class="field">
+            <label for="mail">E-Mail-Adresse *</label>
+            <input type="email" name="E-Mail" id="mail" placeholder="max@beispiel.de" required/>
+          </div>
+
+          <div class="field">
+            <label for="unternehmen">Unternehmen</label>
+            <input type="text" name="Unternehmen" id="unternehmen" placeholder="Muster GmbH (optional)"/>
+          </div>
+
+          <div class="field">
+            <label for="leistung">Ich interessiere mich für *</label>
+            <select name="Leistung" id="leistung" required>
               <option value="" disabled selected>Bitte wählen...</option>
-              <option value="google">Google Präsenz & Sichtbarkeit</option>
-              <option value="social">Social Media Beratung</option>
-              <option value="website">Website-Entwicklung</option>
-              <option value="buchung">Digitale Buchungsplattform</option>
-              <option value="it">IT-Beratung & Digitalisierung</option>
-              <option value="sonstiges">Sonstiges / Erstgespräch</option>
+              <option value="Google Präsenz & Sichtbarkeit">Google Präsenz & Sichtbarkeit</option>
+              <option value="Social Media Beratung">Social Media Beratung</option>
+              <option value="Website-Entwicklung">Website-Entwicklung</option>
+              <option value="Digitale Buchungsplattform">Digitale Buchungsplattform</option>
+              <option value="IT-Beratung & Digitalisierung">IT-Beratung & Digitalisierung</option>
+              <option value="Sonstiges / Erstgespräch">Sonstiges / Erstgespräch</option>
             </select>
           </div>
-          <div class="field"><label>Nachricht *</label><textarea name="nachricht" placeholder="Beschreiben Sie kurz, wobei wir Ihnen helfen können..." required></textarea></div>
+
+          <div class="field">
+            <label for="msg">Ihre Nachricht *</label>
+            <textarea name="Nachricht" id="msg" placeholder="Beschreiben Sie kurz, wobei wir Ihnen helfen können..." required></textarea>
+          </div>
+
+          <div class="field" style="flex-direction:row;align-items:flex-start;gap:0.6rem;">
+            <input type="checkbox" name="Datenverarbeitung bestätigt" value="Ja" id="dsgvo" required
+              style="width:1.1em;height:1.1em;flex-shrink:0;margin-top:0.2rem;accent-color:var(--green-mid);"/>
+            <label for="dsgvo" style="font-size:0.78rem;color:var(--gray-1);line-height:1.6;text-transform:none;letter-spacing:0;">
+              Ich bin mit der Verarbeitung meiner Eingaben zum Zwecke der Anfragebearbeitung einverstanden.
+              (<a href="datenschutz.html" style="color:var(--green-mid);">Datenschutz</a>)
+            </label>
+          </div>
+
+          <!-- Honeypot gegen Spam -->
+          <input type="text" name="_gotcha" value="" style="display:none"/>
+
           <button type="submit" class="submit-btn">
             Anfrage absenden
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <p class="form-note">* Pflichtfelder · Ihre Daten werden nicht an Dritte weitergegeben.</p>
+          <p class="form-note">* Pflichtfelder · Ihre Daten werden über Form.taxi verarbeitet (EU-Server).</p>
         </form>
       </div>
 
