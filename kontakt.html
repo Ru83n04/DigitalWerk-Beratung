@@ -304,52 +304,40 @@
 
 <script src="assets/js/main.js"></script>
 <script>
-  var form = document.getElementById('contact-form');
+  var form       = document.getElementById('contact-form');
   var successBox = document.getElementById('form-success');
-  var errorBox = document.getElementById('form-error');
-  var btn = document.getElementById('submit-btn');
+  var errorBox   = document.getElementById('form-error');
+  var btn        = document.getElementById('submit-btn');
+  var btnHTML    = btn.innerHTML;
 
-  form.onsubmit = function(event) {
+  form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Button: Ladezustand
-    btn.disabled = true;
+    // Ladezustand
+    btn.disabled  = true;
     btn.innerHTML = '<span>Wird gesendet\u2026</span>';
     errorBox.style.display = 'none';
 
-    var formData = new FormData(form);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', form.action, true);
-    xhr.setRequestHeader('Accept', 'application/json');
-
-    xhr.onload = function() {
-      var response;
-      try {
-        response = JSON.parse(xhr.response);
-      } catch(e) {
-        response = { success: false };
-      }
-
-      if (xhr.status === 200 && response.success === true) {
-        // Erfolg
-        form.style.display = 'none';
+    fetch(form.action, {
+      method:  'POST',
+      body:    new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      if (response.ok) {
+        // Erfolg: Formular ausblenden, Erfolgsmeldung zeigen
+        form.style.display      = 'none';
         successBox.style.display = 'block';
       } else {
-        // Fehler
-        errorBox.style.display = 'block';
-        btn.disabled = false;
-        btn.innerHTML = 'Anfrage absenden <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        throw new Error('server-error');
       }
-    };
-
-    xhr.onerror = function() {
+    })
+    .catch(function() {
       errorBox.style.display = 'block';
-      btn.disabled = false;
-      btn.innerHTML = 'Anfrage absenden <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-    };
-
-    xhr.send(formData);
-  };
+      btn.disabled  = false;
+      btn.innerHTML = btnHTML;
+    });
+  });
 </script>
 </body>
 </html>
