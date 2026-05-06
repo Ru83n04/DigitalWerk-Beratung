@@ -4,10 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Über uns – DigitalWerk Beratung</title>
-  <meta name="description" content="Wer steckt hinter DigitalWerk Beratung? Lernen Sie unser Team kennen."/>
+  <meta name="description" content="Lern Laura und Ruben kennen – die zwei Köpfe hinter DigitalWerk Beratung. Marketing, IT und Digitalisierung aus einer Hand."/>
   <link rel="icon" type="image/png" href="assets/img/logo.png"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
+
+  /* ── INTRO ── */
   .about-intro { padding: 4rem 0 6rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .intro-quote {
     font-family: var(--display);
@@ -19,52 +21,148 @@
     margin-bottom: 4rem;
   }
   .intro-quote em { color: var(--green-mid); font-style: italic; }
-
   .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .intro-text p { font-size: 0.95rem; color: var(--gray-1); line-height: 1.9; margin-bottom: 1rem; }
   .intro-text p strong { color: var(--white); font-weight: 500; }
 
-  .intro-card {
+  /* ── TEAM ── */
+  .team { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .team__header { margin-bottom: 4rem; }
+
+  .team__card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 5rem;
+    align-items: start;
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .team__card:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  .team__photo-wrap { position: sticky; top: 8rem; }
+  .team__photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--black-3);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .team__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .team__photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.12);
+  }
+  .team__photo-placeholder span { font-size: 3.5rem; }
+  .team__photo-placeholder p { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .team__photo-badge {
+    position: absolute;
+    bottom: 1.25rem; left: 1.25rem;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--r-md);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .team__photo-badge .dot-green { width: 6px; height: 6px; flex-shrink: 0; }
+  .team__photo-badge span { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+
+  .team__name {
+    font-family: var(--display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+  .team__role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 2rem;
+  }
+  .team__bio { font-size: 0.95rem; color: var(--gray-1); line-height: 1.9; margin-bottom: 1.25rem; }
+  .team__bio strong { color: var(--white); font-weight: 500; }
+
+  .team__skills { display: flex; flex-direction: column; gap: 0; margin: 1.75rem 0; }
+  .team__skill {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.75);
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .team__skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; }
+
+  .team__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .team__tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: rgba(75,173,101,0.08);
+    color: var(--green-mid);
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    border: 1px solid rgba(75,173,101,0.2);
+  }
+
+  /* ── GEMEINSAM ── */
+  .together { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); background: var(--black-2); }
+  .together__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .together__text h2 { margin-bottom: 1.25rem; }
+  .together__text p { font-size: 0.95rem; color: var(--gray-1); line-height: 1.9; margin-bottom: 1rem; }
+  .together__text p strong { color: var(--white); font-weight: 500; }
+
+  .together__card {
     background: var(--black-3);
     border: 1px solid rgba(75,173,101,0.15);
     border-radius: var(--r-lg);
     padding: 2.25rem;
     position: relative;
   }
-  .intro-card__quote-mark {
+  .together__quote-mark {
     font-family: var(--display);
     font-size: 6rem;
     line-height: 1;
     color: var(--green-mid);
-    opacity: 0.25;
+    opacity: 0.2;
     position: absolute;
     top: -1rem; left: 1.5rem;
   }
-  .intro-card blockquote {
+  .together__card blockquote {
     font-family: var(--display);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 300;
     line-height: 1.65;
     margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.9);
   }
-  .intro-card cite {
+  .together__card cite {
     font-style: normal;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--green-mid);
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
-  /* VALUES */
+  /* ── VALUES ── */
   .values { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .values__header { margin-bottom: 4rem; }
-  .values__header h2 { margin-bottom: 0; }
-  .values__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
+  .values__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   .value-card {
     background: var(--black-3);
     border: 1px solid rgba(255,255,255,0.06);
@@ -74,55 +172,20 @@
   }
   .value-card:hover { border-color: rgba(75,173,101,0.3); transform: translateY(-4px); }
   .value-card__icon { font-size: 1.75rem; margin-bottom: 1rem; }
-  .value-card h3 {
-    font-family: var(--display);
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
-  }
+  .value-card h3 { font-family: var(--display); font-size: 1.1rem; font-weight: 300; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
   .value-card p { font-size: 0.85rem; color: var(--gray-1); line-height: 1.75; }
 
-  /* MISSION */
-  .mission { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .mission__inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
-  .mission__label { position: sticky; top: 8rem; }
-  .mission__label h2 { margin-bottom: 1rem; }
-  .mission__label p { font-size: 0.9rem; color: var(--gray-1); line-height: 1.8; }
-  .mission__items { display: flex; flex-direction: column; gap: 0; }
-  .mission-item {
-    padding: 2rem 0 2rem 2rem;
-    border-left: 1px solid rgba(75,173,101,0.2);
-    position: relative;
-    transition: border-color var(--t);
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1000px) {
+    .team__card { grid-template-columns: 260px 1fr; gap: 3rem; }
   }
-  .mission-item:hover { border-color: var(--green-mid); }
-  .mission-item::before {
-    content: '';
-    position: absolute;
-    left: -4px; top: 2rem;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--black-3);
-    border: 1px solid rgba(75,173,101,0.4);
-    transition: background var(--t);
-  }
-  .mission-item:hover::before { background: var(--green-mid); }
-  .mission-item h3 {
-    font-family: var(--display);
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
-  }
-  .mission-item p { font-size: 0.875rem; color: var(--gray-1); line-height: 1.8; }
-
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .team__card { grid-template-columns: 1fr; gap: 2rem; }
+    .team__photo { aspect-ratio: 4/3; max-width: 400px; }
+    .team__photo-wrap { position: static; }
+    .together__inner { grid-template-columns: 1fr; gap: 3rem; }
     .values__grid { grid-template-columns: 1fr 1fr; }
-    .mission__inner { grid-template-columns: 1fr; gap: 3rem; }
-    .mission__label { position: static; }
   }
   @media (max-width: 600px) {
     .values__grid { grid-template-columns: 1fr; }
@@ -149,15 +212,16 @@
   <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a>
 </div>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero__glow"></div>
   <div class="container">
     <div class="eyebrow reveal">Wer wir sind</div>
     <h1 class="display-xl reveal" data-delay="80" style="margin-bottom:1.5rem;">
-      Über uns
+      Hinter<br/><em>DigitalWerk</em>
     </h1>
     <p class="body-lg reveal" data-delay="160">
-      Wir machen Digitalisierung für kleine Betriebe einfach, verständlich und wirksam.
+      Zwei Menschen, eine Mission: Digitalisierung für kleine Betriebe<br/>einfach, ehrlich und wirklich wirksam machen.
     </p>
   </div>
 </section>
@@ -166,27 +230,200 @@
 <section class="about-intro">
   <div class="container">
     <p class="intro-quote reveal">
-      Kleine Unternehmen verdienen genauso gute digitale Beratung wie große Konzerne –
-      nur <em>verständlicher, praxisnäher</em> und ohne leere Versprechen.
+      Wir glauben, dass jeder kleine Betrieb die gleiche digitale Schlagkraft verdient
+      wie ein großes Unternehmen – nur <em>menschlicher, direkter</em> und ohne Umwege.
     </p>
     <div class="intro-grid">
       <div class="intro-text reveal">
         <div class="eyebrow">Unsere Geschichte</div>
-        <p>DigitalWerk Beratung GbR entstand aus einer einfachen Überzeugung: Viele Inhaber kleiner Betriebe wissen, dass sie <strong>online sichtbarer werden müssen</strong> – aber zwischen Tagesgeschäft, fehlender Zeit und dem Dschungel aus Tools und Plattformen geht der Überblick schnell verloren.</p>
-        <p>Genau hier kommen wir ins Spiel. Wir sind Ihr digitaler Begleiter – ehrlich, direkt und immer auf Augenhöhe. Kein Fachjargon, keine überteuerten Paketlösungen, keine Standardfloskeln.</p>
-        <p>Nur das, was <strong>wirklich zu Ihrem Unternehmen passt</strong> – und zu Ihrem Budget.</p>
+        <p>DigitalWerk Beratung ist aus einer einfachen Beobachtung entstanden: Viele Inhaber kleiner Betriebe wissen, dass sie <strong>online sichtbarer werden müssen</strong> – aber zwischen Tagesgeschäft, fehlendem Zeit-Budget und dem Dschungel aus Plattformen verliert man schnell den Überblick.</p>
+        <p>Laura und Ruben haben ihre Kernkompetenzen zusammengebracht – <strong>Marketing auf der einen, IT und Digitalisierung auf der anderen Seite</strong> – und daraus ein Beratungsangebot entwickelt, das wirklich passt: keine Standardpakete, kein Fachjargon, keine leeren Versprechen.</p>
+        <p>Nur das, was <strong>zu dir und deinem Betrieb passt</strong>.</p>
         <div style="margin-top:2rem;">
           <a href="kontakt.html" class="btn btn-primary">
-            Jetzt kennenlernen
+            Lern uns kennen
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
       <div class="reveal" data-delay="120">
-        <div class="intro-card">
-          <div class="intro-card__quote-mark">"</div>
-          <blockquote>"Kein Fachchinesisch, keine leeren Versprechen. Nur Maßnahmen, die wirklich zu Ihnen passen – und Ergebnisse, die Sie selbst sehen."</blockquote>
-          <cite>— DigitalWerk Beratung GbR</cite>
+        <div style="width:100%;aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;background:var(--black-3);border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,0.12);">
+          <!-- Gemeinsames Teamfoto hier einfügen: <img src="assets/img/team.jpg" alt="Laura und Ruben" style="width:100%;height:100%;object-fit:cover;"/> -->
+          <span style="font-size:3rem;">📷</span>
+          <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;">Teamfoto folgt</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="container">
+    <div class="team__header reveal">
+      <div class="eyebrow">Das Team</div>
+      <h2 class="display-md">Die zwei Gesichter<br/>von DigitalWerk</h2>
+    </div>
+
+    <!-- LAURA -->
+    <div class="team__card">
+      <div class="team__photo-wrap reveal">
+        <div class="team__photo">
+          <!-- Foto einfügen sobald vorhanden: <img src="assets/img/laura-ebner.jpg" alt="Laura Ebner" style="width:100%;height:100%;object-fit:cover;"/> -->
+          <div style="width:100%;height:100%;background:linear-gradient(160deg,#0f1f14 0%,#152b1c 40%,#0d1a10 100%);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <radialGradient id="glow-l" cx="50%" cy="42%" r="38%">
+                  <stop offset="0%" stop-color="#4BAD65" stop-opacity="0.18"/>
+                  <stop offset="100%" stop-color="#4BAD65" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="skin-l" cx="50%" cy="40%" r="50%">
+                  <stop offset="0%" stop-color="#f5d5b8"/>
+                  <stop offset="100%" stop-color="#e8b898"/>
+                </radialGradient>
+              </defs>
+              <rect width="280" height="380" fill="url(#glow-l)"/>
+              <g stroke="rgba(75,173,101,0.06)" stroke-width="1">
+                <line x1="0" y1="95" x2="280" y2="95"/><line x1="0" y1="190" x2="280" y2="190"/>
+                <line x1="0" y1="285" x2="280" y2="285"/><line x1="93" y1="0" x2="93" y2="380"/><line x1="187" y1="0" x2="187" y2="380"/>
+              </g>
+              <!-- Body -->
+              <ellipse cx="140" cy="325" rx="100" ry="65" fill="#1a2e1f" opacity="0.9"/>
+              <path d="M 55 315 Q 75 265 108 255 Q 124 248 140 248 Q 156 248 172 255 Q 205 265 225 315 Z" fill="#1e3424"/>
+              <!-- Neck -->
+              <rect x="127" y="198" width="26" height="28" rx="8" fill="url(#skin-l)" opacity="0.95"/>
+              <!-- Head -->
+              <ellipse cx="140" cy="148" rx="54" ry="58" fill="url(#skin-l)"/>
+              <!-- Hair – longer, feminine style -->
+              <ellipse cx="140" cy="96" rx="56" ry="24" fill="#2c1a0e"/>
+              <path d="M 86 108 Q 76 160 80 210 Q 78 175 86 108 Z" fill="#2c1a0e"/>
+              <path d="M 194 108 Q 204 160 200 210 Q 202 175 194 108 Z" fill="#2c1a0e"/>
+              <ellipse cx="140" cy="90" rx="50" ry="20" fill="#3a2210"/>
+              <!-- Side hair flowing down -->
+              <path d="M 86 115 Q 72 180 76 240" stroke="#2c1a0e" stroke-width="18" fill="none" stroke-linecap="round"/>
+              <path d="M 194 115 Q 208 180 204 240" stroke="#2c1a0e" stroke-width="18" fill="none" stroke-linecap="round"/>
+              <!-- Eyes -->
+              <ellipse cx="120" cy="149" rx="9" ry="6.5" fill="white"/>
+              <ellipse cx="160" cy="149" rx="9" ry="6.5" fill="white"/>
+              <circle cx="121" cy="150" r="5" fill="#2c1a0e"/>
+              <circle cx="161" cy="150" r="5" fill="#2c1a0e"/>
+              <circle cx="122" cy="148" r="1.5" fill="white"/>
+              <circle cx="162" cy="148" r="1.5" fill="white"/>
+              <!-- Lashes -->
+              <path d="M 111 143 Q 116 140 121 142" stroke="#2c1a0e" stroke-width="1" fill="none"/>
+              <path d="M 159 142 Q 164 140 169 143" stroke="#2c1a0e" stroke-width="1" fill="none"/>
+              <!-- Eyebrows – arched -->
+              <path d="M 110 138 Q 120 133 130 136" stroke="#2c1a0e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M 150 136 Q 160 133 170 138" stroke="#2c1a0e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <!-- Nose -->
+              <path d="M 138 158 Q 134 171 137 176 Q 140 178 143 176 Q 146 171 142 158" stroke="#c8987a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <!-- Smile -->
+              <path d="M 125 185 Q 140 197 155 185" stroke="#c07858" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <!-- Accent ring -->
+              <circle cx="140" cy="145" r="66" fill="none" stroke="rgba(75,173,101,0.2)" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <text x="140" y="360" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" letter-spacing="3" fill="rgba(75,173,101,0.5)">FOTO FOLGT</text>
+            </svg>
+          </div>
+          <div class="team__photo-badge">
+            <div class="dot-green"></div>
+            <span>Marketing</span>
+          </div>
+        </div>
+      </div>
+      <div class="team__body reveal" data-delay="100">
+        <div class="team__name">Laura<br/>Ebner</div>
+        <div class="team__role">Marketing & Online-Strategie</div>
+        <p class="team__bio">
+          Laura ist die Strategin hinter deiner Sichtbarkeit. Sie weiß, wie Aufmerksamkeit entsteht –
+          ob auf Google, Instagram, LinkedIn oder TikTok – und vor allem, <strong>wie man sie in echte Kundenbeziehungen verwandelt</strong>.
+        </p>
+        <p class="team__bio">
+          Ihr Ding ist es, aus dem Chaos der digitalen Kanäle eine klare, ehrliche Strategie zu machen,
+          die zu deinem Betrieb passt. <strong>Kein Gießkannenprinzip, kein Posting um des Postings willen</strong> –
+          sondern Inhalte und Maßnahmen, die wirklich ankommen.
+        </p>
+        <div class="team__skills">
+          <div class="team__skill"><div class="team__skill-dot"></div>Online-Marketing & Google-Präsenz</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>Social Media Strategie & Content</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>LinkedIn, Instagram, TikTok & YouTube</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>Markenauftritt & Kommunikation</div>
+        </div>
+        <div class="team__tags">
+          <span class="team__tag">Google Ads</span>
+          <span class="team__tag">SEO</span>
+          <span class="team__tag">Content-Strategie</span>
+          <span class="team__tag">Social Media</span>
+          <span class="team__tag">Employer Branding</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUBEN -->
+    <div class="team__card">
+      <div class="team__photo-wrap reveal">
+        <div class="team__photo">
+          <img src="assets/img/ruben-messerschmidt.jpg" alt="Ruben Messerschmidt" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+          <div class="team__photo-badge">
+            <div class="dot-green"></div>
+            <span>IT & Digitalisierung</span>
+          </div>
+        </div>
+      </div>
+      <div class="team__body reveal" data-delay="100">
+        <div class="team__name">Ruben<br/>Messerschmidt</div>
+        <div class="team__role">IT-Beratung & Digitalisierung</div>
+        <p class="team__bio">
+          Ruben ist derjenige, der deine Prozesse unter die Lupe nimmt und fragt:
+          <strong>Wo verlierst du gerade unnötig Zeit, Geld und Nerven?</strong>
+          Er kennt die technische Seite der Digitalisierung – und erklärt sie so, dass du sie auch wirklich verstehst.
+        </p>
+        <p class="team__bio">
+          Vom Buchungssystem über Cloud-Lösungen bis zur kompletten Website-Entwicklung:
+          Ruben findet heraus, welche Tools wirklich zu deinem Betrieb passen –
+          und setzt sie <strong>gemeinsam mit dir um, Schritt für Schritt</strong>.
+        </p>
+        <div class="team__skills">
+          <div class="team__skill"><div class="team__skill-dot"></div>IT-Beratung & Prozessdigitalisierung</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>Website-Entwicklung & technische Umsetzung</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>Software-Auswahl & Einführung</div>
+          <div class="team__skill"><div class="team__skill-dot"></div>Digitale Buchungs- & Automatisierungslösungen</div>
+        </div>
+        <div class="team__tags">
+          <span class="team__tag">Web-Entwicklung</span>
+          <span class="team__tag">Cloud-Lösungen</span>
+          <span class="team__tag">Prozessoptimierung</span>
+          <span class="team__tag">Automatisierung</span>
+          <span class="team__tag">Datenschutz</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GEMEINSAM -->
+<section class="together">
+  <div class="container">
+    <div class="together__inner">
+      <div class="together__text reveal">
+        <div class="eyebrow">Was uns verbindet</div>
+        <h2 class="display-md" style="margin-bottom:1.25rem;">Zusammen mehr<br/>als die Summe</h2>
+        <p>Marketing ohne Technik endet im Chaos. Technik ohne Strategie bringt nichts.
+        Bei DigitalWerk bekommst du beides aus einer Hand – <strong>aufeinander abgestimmt, ohne Reibungsverluste</strong>.</p>
+        <p>Wir denken gemeinsam, sprechen offen miteinander und liefern dir eine Beratung,
+        die das große Bild im Blick hat: <strong>Was bringt deinem Betrieb wirklich etwas?</strong></p>
+        <div style="margin-top:2rem;">
+          <a href="kontakt.html" class="btn btn-primary">
+            Erstes Gespräch vereinbaren
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="120">
+        <div class="together__card">
+          <div class="together__quote-mark">"</div>
+          <blockquote>„Wir machen das nicht, weil es unser Job ist. Wir machen es, weil wir echten Mehrwert für echte Menschen schaffen wollen – und weil wir glauben, dass kleine Betriebe das genauso verdienen wie die Großen."</blockquote>
+          <cite>— Laura & Ruben, DigitalWerk Beratung</cite>
         </div>
       </div>
     </div>
@@ -205,42 +442,11 @@
     </div>
     <div class="values__grid">
       <div class="value-card reveal"><div class="value-card__icon">🎯</div><h3>Klarheit</h3><p>Wir erklären alles verständlich. Kein Jargon, keine Verwirrung – nur klare Aussagen und konkrete nächste Schritte.</p></div>
-      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">🤝</div><h3>Partnerschaft</h3><p>Sie bekommen einen persönlichen Ansprechpartner, der Ihr Unternehmen wirklich kennt – kein anonymes Call-Center.</p></div>
+      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">🤝</div><h3>Partnerschaft</h3><p>Du bekommst persönlichen Kontakt zu beiden von uns – kein anonymes Support-Center, kein Weiterschicken.</p></div>
       <div class="value-card reveal" data-delay="160"><div class="value-card__icon">💡</div><h3>Ehrlichkeit</h3><p>Wir empfehlen nur, was wirklich Sinn macht – auch wenn das bedeutet, weniger zu verkaufen.</p></div>
-      <div class="value-card reveal"><div class="value-card__icon">⚡</div><h3>Tempo</h3><p>Gute Ideen schnell umsetzen. Wir arbeiten effizient, damit Sie schnell Ergebnisse sehen.</p></div>
-      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">📊</div><h3>Messbarkeit</h3><p>Was nicht messbar ist, kann nicht verbessert werden. Wir arbeiten datenbasiert und transparent.</p></div>
-      <div class="value-card reveal" data-delay="160"><div class="value-card__icon">🌱</div><h3>Nachhaltigkeit</h3><p>Keine Quick-Fixes. Wir bauen Strukturen, die langfristig tragen und mit Ihrem Betrieb wachsen.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="mission">
-  <div class="container">
-    <div class="mission__inner">
-      <div class="mission__label reveal">
-        <div class="eyebrow">Unsere Mission</div>
-        <h2 class="display-md">Warum wir tun,<br/>was wir tun</h2>
-        <p>Kleine Betriebe sind das Rückgrat unserer Wirtschaft. Sie verdienen digitale Kompetenz, die wirklich hilft.</p>
-      </div>
-      <div class="mission__items">
-        <div class="mission-item reveal">
-          <h3>Mehr Sichtbarkeit für kleine Betriebe</h3>
-          <p>Ob Handwerker, Therapeut oder lokaler Händler – wir helfen Ihnen, von den richtigen Menschen gefunden zu werden, genau dann, wenn sie suchen.</p>
-        </div>
-        <div class="mission-item reveal" data-delay="80">
-          <h3>Digitale Kompetenz zugänglich machen</h3>
-          <p>Große Unternehmen haben Marketingabteilungen. Kleine Betriebe haben uns. Wir geben Ihnen dieselben Werkzeuge – passend zu Ihrer Größe und Ihrem Budget.</p>
-        </div>
-        <div class="mission-item reveal" data-delay="160">
-          <h3>Vertrauen durch Transparenz</h3>
-          <p>Wir verdienen Vertrauen durch Offenheit, messbare Ergebnisse und direkte Kommunikation – nicht durch schöne Versprechen.</p>
-        </div>
-        <div class="mission-item reveal" data-delay="240">
-          <h3>Langfristige Partnerschaften</h3>
-          <p>Wir denken in Beziehungen, nicht in Einzelaufträgen. Ihr Wachstum ist unser Erfolg – daran messen wir uns.</p>
-        </div>
-      </div>
+      <div class="value-card reveal"><div class="value-card__icon">⚡</div><h3>Tempo</h3><p>Gute Ideen schnell umsetzen. Wir arbeiten effizient, damit du schnell Ergebnisse siehst.</p></div>
+      <div class="value-card reveal" data-delay="80"><div class="value-card__icon">📊</div><h3>Messbarkeit</h3><p>Was nicht messbar ist, kann nicht verbessert werden. Wir arbeiten transparent und datenbasiert.</p></div>
+      <div class="value-card reveal" data-delay="160"><div class="value-card__icon">🌱</div><h3>Nachhaltigkeit</h3><p>Keine Quick-Fixes. Wir bauen Strukturen, die langfristig tragen und mit deinem Betrieb wachsen.</p></div>
     </div>
   </div>
 </section>
@@ -249,8 +455,8 @@
 <section style="padding:6rem 0;text-align:center;background:var(--black-2);">
   <div class="container">
     <div class="eyebrow reveal" style="justify-content:center;">Nächster Schritt</div>
-    <h2 class="display-md reveal" style="margin-bottom:1rem;">Lassen Sie uns<br/>kennenlernen</h2>
-    <p class="body-md reveal" data-delay="80" style="max-width:440px;margin:0 auto 2.5rem;">Erstes Gespräch kostenlos und unverbindlich. Einfach Kontakt aufnehmen.</p>
+    <h2 class="display-md reveal" style="margin-bottom:1rem;">Lass uns reden</h2>
+    <p class="body-md reveal" data-delay="80" style="max-width:440px;margin:0 auto 2.5rem;">Erstes Gespräch kostenlos und unverbindlich. Wir schauen gemeinsam, was wirklich Sinn macht.</p>
     <a href="kontakt.html" class="btn btn-primary reveal" data-delay="120">
       Jetzt Kontakt aufnehmen
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
